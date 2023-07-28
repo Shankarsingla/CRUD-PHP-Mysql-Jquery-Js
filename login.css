@@ -1,0 +1,63 @@
+/* Basic styling for the welcome message */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+/* Basic styling for the form container */
+#login-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Styling for labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Styling for input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* Styling for the submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the error container */
+#error-container {
+    text-align: center;
+    color: #ff0000;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
