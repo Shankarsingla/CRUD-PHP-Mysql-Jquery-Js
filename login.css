@@ -1,4 +1,4 @@
-/* Basic styling for the welcome message */
+
 h1 {
     text-align: center;
     margin-top: 50px;
@@ -11,7 +11,6 @@ h2 {
     font-size: 18px;
 }
 
-/* Basic styling for the form container */
 #login-form {
     width: 300px;
     margin: 0 auto;
@@ -21,14 +20,12 @@ h2 {
     background-color: #f9f9f9;
 }
 
-/* Styling for labels */
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-/* Styling for input fields */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -39,7 +36,6 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
-/* Styling for the submit button */
 input[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -54,10 +50,8 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* Styling for the error container */
 #error-container {
-    text-align: center;
-    color: #ff0000;
-    font-size: 14px;
-    margin-bottom: 10px;
+    color: red;
+  margin-top: -10px; /* Negative margin to overlap with the input field */
+  margin-bottom: 10px;
 }

@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header('Location: login.html');
+    exit;
+}
+?>
+<?php
        include 'connection.php';
        session_start();
        $id=$_SESSION['id'];
@@ -127,13 +134,15 @@ td img {
   display: none;
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 200px;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 a
 {
     background-color: Crimson;  

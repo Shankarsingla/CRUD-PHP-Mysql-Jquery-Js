@@ -11,6 +11,7 @@
         $user = $result->fetch_assoc();
         session_start();
         $_SESSION['id']=$user['id'];
+        $_SESSION['authenticated'] = true;
         echo "success";
         
 

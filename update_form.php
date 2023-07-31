@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header('Location: login.html');
+    exit;
+}
+?>
+<?php
         include 'connection.php';
         if(isset($_GET['id']))
         {
@@ -49,6 +56,75 @@
     0%, 100% { opacity: 0; }
     20%, 80% { opacity: 1; }
 }
+body {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+input[type="text"],
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.submit {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#update-form {
+  display: block;
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#preview {
+  display: block;
+  max-width: 200px;
+  max-height: 200px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #ccc;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+button + br {
+  display: none;
+}
+
         </style>
 
 </head>
