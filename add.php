@@ -11,7 +11,9 @@ include 'connection.php';
          move_uploaded_file($tempname, $destination);
          session_start();
          $mid=$_SESSION['id'];
-         $sql="INSERT into interns (name,email,gender,mid,photo) values('$username','$email','$gender','$mid','$destination')";
+         $selectedLanguages = $_POST['languages'];
+         $languages = implode(', ', $selectedLanguages);
+         $sql="INSERT into interns (name,email,gender,mid,photo,languages) values('$username','$email','$gender','$mid','$destination','$languages')";
          if ($conn->query($sql) === TRUE) {
             echo" Insertion Success";
         } else {

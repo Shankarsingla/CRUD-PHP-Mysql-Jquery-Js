@@ -22,6 +22,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                      <th> name</th>
                      <th> Email</th>
                      <th> Gender</th>
+                     <th> Languages </th>
                      <th> UPDATE </th>
                      <th> DELETE </th>
                    </tr>';
@@ -29,13 +30,14 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 {
                 $imagePath = $rows['photo'];
                     $output .= '<tr>';
-                    $output .= '<td><img src="' . $imagePath . '" alt="User Image" width="50" height="50"></td>';
+                    $output .= '<td><img src="' . $imagePath . '" alt="User Image" width="50" height="50" onmouseover="showLargeImage(\'' . $imagePath . '\')" onmouseout="hideLargeImage()"></td>';
+
 
                   $output .= '<td>' . $rows['id'] . '</td>';
                     $output .= '<td>' . $rows['name'] . '</td>';
                     $output .= '<td>' . $rows['email'] . '</td>';
                     $output .= '<td>' . $rows['gender'] . '</td>';
-                    
+                    $output .= '<td>' . $rows['languages'] . '</td>';
                     $output .= '<td><button onclick="updateIntern(' . $rows['id'] . ')">Update</button></td>';
                     $output .= '<td><button onclick="deleteIntern(' . $rows['id'] . ')">Delete</button></td>';
 
@@ -160,6 +162,30 @@ margin-right:30px;
 button {
   margin: 5px;
 }
+.image-preview-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; 
+  height: 200px; 
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; 
+}
+
+.image-preview-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
 
 
 
@@ -167,8 +193,22 @@ button {
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="dashboard.js"></script>
+        <script>
+function showLargeImage(imagePath) {
+  var imgPreview = document.getElementById("largeImagePreview");
+  imgPreview.src = imagePath;
+  var container = document.getElementById("imagePreviewContainer");
+  container.style.display = "block";
+}
+
+function hideLargeImage() {
+  var container = document.getElementById("imagePreviewContainer");
+  container.style.display = "none";
+}
+</script>
 </head>
 <body>
+    
 <div class="toast" id="toast">
         <div class="toast-message" id="toastMessage"></div>
     </div>
@@ -179,5 +219,8 @@ button {
     <button id="cancelButton">Cancel</button>
   </div>
 </div>   
+<div id="imagePreviewContainer" class="image-preview-container">
+    <img id="largeImagePreview" src="" alt="Large Preview">
+</div>
 </body>
 </html>

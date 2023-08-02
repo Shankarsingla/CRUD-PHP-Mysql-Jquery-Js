@@ -18,6 +18,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                        $email=$internData['email'];
                        $gender=$internData['gender'];
                        $photo=$internData['photo'];
+                       $languages = explode(', ', $internData['languages']); 
 
 
         }
@@ -93,7 +94,7 @@ input[type="radio"] {
 }
 #update-form {
   display: block;
-  width: 300px;
+  width: 450px;
   margin: 50px auto;
   padding: 20px;
   background-color: #f0f0f0;
@@ -150,6 +151,17 @@ button + br {
         <input type="radio" value="Female" name="ugender" <?php echo ($gender === 'Female') ? 'checked' : ''; ?>>Female
         <input type="radio" value="Other" name="ugender" <?php echo ($gender === 'Other') ? 'checked' : ''; ?>>Other
         <br><br>
+        <fieldset>
+    <legend>Languages:</legend>
+    <label><input type="checkbox" name="languages[]" value="English" <?php echo in_array('English', $languages) ? 'checked' : ''; ?>> English</label>
+    <label><input type="checkbox" name="languages[]" value="Spanish" <?php echo in_array('Spanish', $languages) ? 'checked' : ''; ?>> Spanish</label>
+    <label><input type="checkbox" name="languages[]" value="French" <?php echo in_array('French', $languages) ? 'checked' : ''; ?>> French</label>
+    <label><input type="checkbox" name="languages[]" value="Hindi" <?php echo in_array('Hindi', $languages) ? 'checked' : ''; ?>> Hindi</label>
+    <label><input type="checkbox" name="languages[]" value="German" <?php echo in_array('German', $languages) ? 'checked' : ''; ?>> German</label>
+    <label><input type="checkbox" name="languages[]" value="Chinese" <?php echo in_array('Chinese', $languages) ? 'checked' : ''; ?>> Chinese</label>
+</fieldset>
+<br>
+
 
        
         <label>Current Photo:</label>

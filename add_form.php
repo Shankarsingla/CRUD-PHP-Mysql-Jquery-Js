@@ -43,6 +43,17 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             <input type="radio" value="Female" name="Gender">Female
             <input type="radio" value="Other" name="Gender">Other
             <br><br>
+            <fieldset>
+    <legend>Languages:</legend>
+    <label><input type="checkbox" name="languages[]" value="English"> English</label>
+    <label><input type="checkbox" name="languages[]" value="Spanish"> Spanish</label>
+    <label><input type="checkbox" name="languages[]" value="French"> French</label>
+    <label><input type="checkbox" name="languages[]" value="Hindi"> Hindi</label>
+    <label><input type="checkbox" name="languages[]" value="German"> German</label>
+    <label><input type="checkbox" name="languages[]" value="Chinese"> Chinese</label>
+</fieldset>
+    <br>
+    <br>
             <input type="submit" class="submit" value="ADD">
             <button type="button" onclick="canceladd()">Cancel</button><br><br>
             <img id="preview1" src="#" alt="Preview Image" style="display: none; max-width: 200px; max-height: 200px;">
